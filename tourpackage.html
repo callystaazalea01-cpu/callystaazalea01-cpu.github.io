@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Products - YOU'RE IN EUROPE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { 
+            font-family: 'Comic Sans MS', cursive, sans-serif; 
+            padding: 25px; 
+            color: #4a5568; 
+            background-color: #fff9fb;
+            line-height: 1.6;
+        }
+        .page-container {
+            max-width: 950px;
+            margin: 0 auto;
+        }
+        h2 { 
+            color: #ff69b4; 
+            font-size: 26px; 
+            margin-bottom: 5px; 
+        }
+        .katalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .katalog-box {
+            background: white;
+            border: 3px dashed #ffb6c1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(255, 192, 203, 0.2);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+        .katalog-box:hover {
+            transform: translateY(-5px);
+        }
+        .katalog-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 2px dashed #ffb6c1;
+        }
+        .katalog-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .season-tag {
+            display: inline-block;
+            background: #fff0f5;
+            color: #ff69b4;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            border: 1px solid #ffb6c1;
+            width: fit-content;
+        }
+        .katalog-content h4 {
+            color: #2d3748;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .rute-text {
+            color: #718096;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .harga-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px dashed #edf2f7;
+        }
+        .harga {
+            color: #ff69b4;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .btn-itin {
+            background: #87ceeb;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            font-weight: bold;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .btn-itin:hover {
+            background: #ff69b4;
+        }
+        .modal-bg {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-konten {
+            background-color: #fff9fb;
+            margin: 10% auto;
+            padding: 25px;
+            border: 4px dashed #ffb6c1;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .tombol-tutup {
+            color: #aaa;
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .tombol-tutup:hover {
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <div style="text-align: center; margin-bottom: 25px;">
+            <h2>🌸 Daftar Paket Tour Europe & UK 🌸</h2>
+            <p style="color: #64748b; font-size: 0.9rem;">Pilih petualangan terbaikmu, mulai dari spesial United Kingdom hingga keliling benua Eropa!</p>
+        </div>
+
+        <div class="katalog-grid">
+            <!-- 1. SPESIAL UK -->
+            <div class="katalog-box" style="border-color: #87ceeb;">
+                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "UK.jpg" -->
+                <img src="UK.jpg" class="katalog-img" alt="UK Special" style="border-color: #87ceeb;">
+                <div class="katalog-content">
+                    <span class="season-tag" style="background: #e0f2fe; color: #0284c7; border-color: #7dd3fc;">🇬🇧 Spesial United Kingdom</span>
+                    <h4>UK Royal & Classic Highlights (9H)</h4>
+                    <p class="rute-text"><i class="fas fa-map-marker-alt"></i> London • Oxford • Bath • York • Edinburgh</p>
+                    <p style="color: #64748b; font-size: 0.85rem; line-height: 1.5;">Menjelajahi ikon kota London, universitas klasik Oxford, pemandian romawi kuno di Bath, hingga kastil megah di Skotlandia.</p>
+                    <div class="harga-box">
+                        <div class="harga">Rp 34,5 Jt</div>
+                        <button class="btn-itin" onclick="bukaModal('itin-uk')" style="background: #0284c7;">Lihat Itinerary</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. SPRING -->
+            <div class="katalog-box">
+                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "spring.jpg" -->
+                <img src="tulip.jpg" class="katalog-img" alt="Spring">
+                <div class="katalog-content">
+                    <span class="season-tag">🌸 Musim Semi (Maret - Mei)</span>
+                    <h4>Spring Bloom & Keukenhof (12H)</h4>
+                    <p class="rute-text"><i class="fas fa-map-marker-alt"></i> UK • Prancis • Belgia • Belanda • Swiss</p>
+                    <p style="color: #64748b; font-size: 0.85rem; line-height: 1.5;">Mulai dari London, naik Eurostar ke Paris, mengunjungi festival tulip Keukenhof, dan pemandangan Swiss.</p>
+                    <div class="harga-box">
+                        <div class="harga">Rp 48,5 Jt</div>
+                        <button class="btn-itin" onclick="bukaModal('itin-spring')">Lihat Itinerary</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. SUMMER -->
+            <div class="katalog-box">
+                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "summer.jpg" -->
+                <img src="summer.jpg" class="katalog-img" alt="Summer">
+                <div class="katalog-content">
+                    <span class="season-tag" style="background: #fef3c7; color: #d97706; border-color: #fde68a;">☀️ Musim Panas (Juni - Ags)</span>
+                    <h4>Summer UK & Riviera Coast (14H)</h4>
+                    <p class="rute-text"><i class="fas fa-map-marker-alt"></i> UK • Prancis • Monako • Swiss • Italia</p>
+                    <p style="color: #64748b; font-size: 0.85rem; line-height: 1.5;">City tour London dan Paris, menyusuri pesisir Mediterania dan tempat bersejarah di Italia.</p>
+                    <div class="harga-box">
+                        <div class="harga">Rp 56,0 Jt</div>
+                        <button class="btn-itin" onclick="bukaModal('itin-summer')">Lihat Itinerary</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. AUTUMN -->
+            <div class="katalog-box">
+                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "autumn.jpg" -->
+                <img src="autumn.jpg" class="katalog-img" alt="Autumn">
+                <div class="katalog-content">
+                    <span class="season-tag" style="background: #ffedd5; color: #c2410c; border-color: #fed7aa;">🍁 Musim Gugur (Sept - Nov)</span>
+                    <h4>Autumn Trail & Central Europe (13H)</h4>
+                    <p class="rute-text"><i class="fas fa-map-marker-alt"></i> UK • Prancis • Jerman • Austria • Italia</p>
+                    <p style="color: #64748b; font-size: 0.85rem; line-height: 1.5;">Menikmati daun gugur di London, kawasan kastil tua Jerman, dan desa tepi danau Hallstatt.</p>
+                    <div class="harga-box">
+                        <div class="harga">Rp 51,0 Jt</div>
+                        <button class="btn-itin" onclick="bukaModal('itin-autumn')">Lihat Itinerary</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. WINTER -->
+            <div class="katalog-box">
+                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "winter.jpg" -->
+                <img src="winter.jpg" class="katalog-img" alt="Winter">
+                <div class="katalog-content">
+                    <span class="season-tag" style="background: #f1f5f9; color: #475569; border-color: #cbd5e1;">❄️ Musim Dingin (Des - Feb)</span>
+                    <h4>Winter Festive & Alpine Snow (14H)</h4>
+                    <p class="rute-text"><i class="fas fa-map-marker-alt"></i> UK • Prancis • Belanda • Swiss • Austria</p>
+                    <p style="color: #64748b; font-size: 0.85rem; line-height: 1.5;">Winter Wonderland London, pasar natal Amsterdam, dan main salju di Mt. Titlis Swiss.</p>
+                    <div class="harga-box">
+                        <div class="harga">Rp 59,5 Jt</div>
+                        <button class="btn-itin" onclick="bukaModal('itin-winter')">Lihat Itinerary</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP MODAL ITINERARY -->
+    <div id="modal-popup" class="modal-bg">
+        <div class="modal-konten">
+            <span class="tombol-tutup" onclick="tutupModal()">&times;</span>
+            <div id="isi-itinerary" style="line-height: 1.7; color: #334155; font-size: 0.9rem;"></div>
+        </div>
+    </div>
+
+    <!-- DATA HIDDEN ITINERARY -->
+    <div id="itin-uk" style="display:none;">
+        <h3 style="color:#0284c7; margin-bottom:12px; font-weight:700;">Itinerary UK Royal & Classic (9 Hari)</h3>
+        <ul style="padding-left:18px;">
+            <li><b>Hari 1-3 (London):</b> Tiba di Heathrow, foto di Tower Bridge, Big Ben, London Eye, dan belanja di Oxford Street.</li>
+            <li><b>Hari 4 (Oxford & Cotswolds):</b> Mengunjungi universitas tertua di Oxford dan desa tercantik di Inggris, Cotswolds.</li>
+            <li><b>Hari 5 (Bath & Stonehenge):</b> Menengok situs prasejarah misterius Stonehenge dan pemandian air panas Romawi kuno di Kota Bath.</li>
+            <li><b>Hari 6-7 (York):</b> Perjalanan ke utara menuju kota beraroma abad pertengahan York & menyusuri York Minster.</li>
+            <li><b>Hari 8-9 (Edinburgh, Skotlandia):</b> Naik kereta cepat ke Edinburgh, menjelajahi Edinburgh Castle & Royal Mile sebelum kembali ke London untuk kepulangan.</li>
+        </ul>
+    </div>
+
+    <div id="itin-spring" style="display:none;">
+        <h3 style="color:#ff69b4; margin-bottom:12px; font-weight:700;">Itinerary Spring Bloom (12 Hari)</h3>
+        <ul style="padding-left:18px;">
+            <li><b>Hari 1-3 (UK):</b> Tiba di London, foto di Big Ben, London Eye, dan jalan santai di Hyde Park.</li>
+            <li><b>Hari 4 (Prancis):</b> Naik Eurostar ke Paris, photo stop di Menara Eiffel & Museum Louvre.</li>
+            <li><b>Hari 5-7 (Belgia & Belanda):</b> Grand Place Brussels, festival tulip Keukenhof & Zaanse Schans.</li>
+            <li><b>Hari 8-9 (Jerman):</b> Katedral Cologne & menyusuri Lembah Sungai Rhine.</li>
+            <li><b>Hari 10-12 (Swiss):</b> Lucerne, naik cable car ke Mt. Titlis, lalu transfer ke bandara Zurich.</li>
+        </ul>
+    </div>
+
+    <div id="itin-summer" style="display:none;">
+        <h3 style="color:#ff69b4; margin-bottom:12px; font-weight:700;">Itinerary Summer UK & Riviera (14 Hari)</h3>
+        <ul style="padding-left:18px;">
+            <li><b>Hari 1-3 (UK):</b> London tour, Buckingham Palace, belanja di Oxford Street.</li>
+            <li><b>Hari 4-6 (Prancis & Monako):</b> City tour Paris, penerbangan ke Nice & day trip ke Monte Carlo.</li>
+            <li><b>Hari 7-8 (Swiss):</b> Danau Geneva & kawasan kota tua Lucerne.</li>
+            <li><b>Hari 9-14 (Italia & Vatikan):</b> Milan Duomo, naik gondola di Venice, Menara Pisa, Colosseum & Vatikan.</li>
+        </ul>
+    </div>
+
+    <div id="itin-autumn" style="display:none;">
+        <h3 style="color:#ff69b4; margin-bottom:12px; font-weight:700;">Itinerary Autumn Trail (13 Hari)</h3>
+        <ul style="padding-left:18px;">
+            <li><b>Hari 1-3 (UK):</b> Taman-taman London di musim gugur & mengunjungi kampus tua Oxford.</li>
+            <li><b>Hari 4-6 (Prancis & Luksemburg):</b> Paris, Istana Versailles, & benteng tua Luxemburg City.</li>
+            <li><b>Hari 7-10 (Jerman & Austria):</b> Kastil Neuschwanstein, Munich, Salzburg & desa Hallstatt.</li>
+            <li><b>Hari 11-13 (Italia):</b> Tur kanal di Venice & acara bebas belanja di Milan sebelum pulang.</li>
+        </ul>
+    </div>
+
+    <div id="itin-winter" style="display:none;">
+        <h3 style="color:#ff69b4; margin-bottom:12px; font-weight:700;">Itinerary Winter Festive (14 Hari)</h3>
+        <ul style="padding-left:18px;">
+            <li><b>Hari 1-3 (UK):</b> Winter Wonderland di Hyde Park & lampu natal Regent Street.</li>
+            <li><b>Hari 4-7 (Prancis, Belgia, Belanda):</b> Belanja winter sale Paris, kota tua Bruges, & Amsterdam light festival.</li>
+            <li><b>Hari 8-14 (Swiss & Austria):</b> Main salju di Mt. Titlis Swiss, Innsbruck, & Christmas market Vienna.</li>
+        </ul>
+    </div>
+
+    <script>
+        function bukaModal(idData) {
+            var isi = document.getElementById(idData).innerHTML;
+            document.getElementById('isi-itinerary').innerHTML = isi;
+            document.getElementById('modal-popup').style.display = 'block';
+        }
+        function tutupModal() {
+            document.getElementById('modal-popup').style.display = 'none';
+        }
+        window.onclick = function(e) {
+            var modal = document.getElementById('modal-popup');
+            if (e.target == modal) { modal.style.display = 'none'; }
+        }
+    </script>
+</body>
+</html>
