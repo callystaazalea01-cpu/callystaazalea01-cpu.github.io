@@ -1,0 +1,226 @@
+/* =========================================================
+   STYLE MIX 4 WARNA PASTEL (CLUSTR STUDIO) - YOU'RE IN EUROPE 🌸🍋🫐
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+  --raspberry: #F2619C;          /* Pink Raspberry Rose */
+  --soft-lilac: #E7BEF8;         /* Ungu Soft Lilac */
+  --blueberry: #93ABD9;          /* Biru Blueberry Milk */
+  --lemon-cream: #EDE986;        /* Kuning Lemon Cream */
+  --bg-main: #f0f4f9;            /* Latar Belakang Utama */
+  --card-bg: #ffffff;            
+  --text-dark: #2d3748;          
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  /* Latar belakang perpaduan Blueberry Milk & Soft Lilac */
+  background: linear-gradient(180deg, #eef2f9 0%, #f6effb 100%) !important;
+  color: var(--text-dark) !important;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+/* 1. Navbar dengan Sentuhan Soft Lilac & Lemon Cream */
+.navbar, nav {
+  background: var(--soft-lilac) !important;
+  border-bottom: 4px solid var(--lemon-cream) !important; /* Aksen Kuning Lemon */
+  padding: 16px 40px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(231, 190, 248, 0.4) !important;
+}
+
+/* Logo Raspberry Rose */
+.logo, .logo-text, .navbar-brand, h1.logo {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 700 !important;
+  font-size: 24px !important;
+  color: var(--raspberry) !important;
+  text-decoration: none;
+}
+
+/* Menu Navigasi (Tombol Blueberry Milk) */
+.nav-links a, nav a {
+  background-color: #ffffff !important;
+  color: #4a5568 !important;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  margin: 0 4px;
+  border: 2px solid var(--blueberry) !important;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover, nav a:hover {
+  background-color: var(--lemon-cream) !important;
+  color: #2d3748 !important;
+  border-color: var(--lemon-cream) !important;
+}
+
+/* 2. Hero Section (Dominan Kuning Lemon Cream!) */
+.hero-box, .welcome-box, .hero-section {
+  background: var(--lemon-cream) !important; /* KUNING LEMON MENONJOL */
+  border: 3px dashed var(--raspberry) !important; /* Garis Putus-putus Raspberry */
+  border-radius: 28px !important;
+  padding: 50px 30px !important;
+  text-align: center;
+  max-width: 1000px;
+  margin: 30px auto;
+  box-shadow: 0 10px 30px rgba(237, 233, 134, 0.5) !important;
+}
+
+.hero-box h1, .hero-box h2, .welcome-title, h2.title {
+  font-family: 'Playfair Display', serif !important;
+  color: #2d3748 !important;
+  font-size: 32px !important;
+  margin-bottom: 12px !important;
+}
+
+.hero-box p {
+  color: #4a5568 !important;
+  font-size: 16px !important;
+  max-width: 600px;
+  margin: 0 auto 20px auto;
+}
+
+/* 3. Kartu Destinasi (Kombinasi Kartu Putih + Border Blueberry & Tag Lemon) */
+.section-title, h3.section-title, .destinasi-title {
+  font-family: 'Playfair Display', serif !important;
+  color: var(--raspberry) !important;
+  font-size: 28px !important;
+  text-align: center;
+  margin: 35px 0 20px 0;
+}
+
+.card-box, .katalog-box, .destinasi-card, .card {
+  background: var(--card-bg) !important;
+  border-radius: 24px !important;
+  border: 3px solid var(--blueberry) !important; /* Border Biru Blueberry */
+  padding: 18px !important;
+  box-shadow: 0 8px 20px rgba(147, 171, 217, 0.25) !important;
+  transition: all 0.3s ease !important;
+}
+
+.card-box:hover, .katalog-box:hover, .destinasi-card:hover, .card:hover {
+  transform: translateY(-8px) !important;
+  border-color: var(--raspberry) !important;
+  box-shadow: 0 12px 25px rgba(242, 97, 156, 0.3) !important;
+}
+
+.card-box img, .katalog-box img, .destinasi-card img, .card img {
+  border-radius: 16px !important;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* 4. Formulir Pendaftaran (Latar Soft Lilac + Border Lemon Cream) */
+.form-container, .booking-box, .form-box {
+  background: #ffffff !important;
+  border: 4px dashed var(--soft-lilac) !important; /* Garis Putus-putus Lilac */
+  border-radius: 30px !important;
+  padding: 40px 30px !important;
+  max-width: 580px;
+  margin: 30px auto;
+  box-shadow: 0 10px 30px rgba(231, 190, 248, 0.3) !important;
+}
+
+.form-container h2, .booking-title {
+  font-family: 'Playfair Display', serif !important;
+  color: var(--raspberry) !important;
+  font-size: 28px !important;
+  text-align: center;
+  margin-bottom: 8px !important;
+}
+
+/* Input Form dengan Latar Lemon Cream Soft saat di-klik */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 14px 16px !important;
+  border: 2px solid var(--blueberry) !important;
+  border-radius: 16px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--text-dark) !important;
+  background-color: #fafbfd !important;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  transition: all 0.2s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--raspberry) !important;
+  background-color: #fffde6 !important; /* Sentuhan Lemon Soft saat ngetik */
+  box-shadow: 0 0 0 4px rgba(242, 97, 156, 0.15) !important;
+}
+
+label {
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  color: var(--text-dark) !important;
+}
+
+/* 5. Tombol Utama (Raspberry Rose Ceria) */
+.btn-primary, 
+button, 
+input[type="submit"], 
+.btn-submit {
+  background: var(--raspberry) !important;
+  color: #ffffff !important;
+  border: none !important;
+  padding: 14px 28px !important;
+  border-radius: 18px !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-weight: 800 !important;
+  font-size: 15px !important;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(242, 97, 156, 0.35) !important;
+  transition: all 0.2s ease !important;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-primary:hover, 
+button:hover, 
+input[type="submit"]:hover, 
+.btn-submit:hover {
+  background: #e04e8b !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 22px rgba(242, 97, 156, 0.45) !important;
+}
+
+/* 6. Tag Musim (Pakai Kuning Lemon Cream & Soft Lilac) */
+.tag-uk, .season-tag, .tag {
+  background-color: var(--lemon-cream) !important; /* TAG KUNING LEMON */
+  color: #5b4002 !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+}
+
+.price-text {
+  font-size: 20px !important;
+  font-weight: 800 !important;
+  color: var(--raspberry) !important;
+}

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - You're in Europe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        body {
+            background-color: #fff9fb;
+            color: #4a5568;
+            padding-bottom: 50px;
+        }
+
+        /* 1. HERO SECTION (Bisa Video/Foto) */
+        .hero {
+            position: relative;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            /* FOTO BACKUP: Ganti URL gambar di bawah jika tidak pakai video */
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200') center/cover no-repeat;
+        }
+
+        /* Video Background (Aktifkan jika punya file video mp4) */
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 30px 40px;
+            border-radius: 20px;
+            border: 3px dashed #ffb6c1;
+            max-width: 650px;
+            margin: 0 20px;
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+            color: #4a5568;
+        }
+
+        .hero-overlay h1 {
+            color: #ff69b4;
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
+
+        .hero-overlay p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-main {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #ff69b4;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-main:hover {
+            background-color: #ff1493;
+            transform: translateY(-3px);
+        }
+
+        /* 2. SECTION HIGHLIGHT DESTINASI */
+        .section-title {
+            text-align: center;
+            margin: 40px 0 20px;
+            color: #ff69b4;
+            font-size: 24px;
+        }
+
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            border: 2px dashed #ffb6c1;
+            border-radius: 16px;
+            width: 280px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(255, 192, 203, 0.2);
+            transition: transform 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* GANTI FOTO CARD DI SINI / LEWAT HTML BELOW */
+        .card img {
+            width: 100%;
+            height: 170px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+        }
+
+        .card-body h3 {
+            color: #ff69b4;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .card-body p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .btn-sub {
+            display: inline-block;
+            padding: 8px 18px;
+            background-color: #fff0f5;
+            color: #ff69b4;
+            border: 1px solid #ffb6c1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            border-radius: 15px;
+            transition: 0.2s;
+        }
+
+        .btn-sub:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+
+        /* 3. QUICK CTA SECTION */
+        .cta-banner {
+            margin: 50px auto 0;
+            max-width: 900px;
+            background: #ffffff;
+            border: 2px dashed #ffb6c1;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(255, 192, 203, 0.2);
+        }
+
+        .cta-banner h2 {
+            color: #ff69b4;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero">
+        <!-- TIPS VIDEO: Jika ada file video MP4, hilangkan tanda komentar di baris video di bawah -->
+        <!-- <video autoplay muted loop class="hero-video">
+            <source src="video-pantai.mp4" type="video/mp4">
+        </video> -->
+
+        <div class="hero-overlay">
+            <h1>✨ Selamat Datang di You're in Europe! ✨</h1>
+            <p>Yuhuul Siap buat jalan-jalan virtual paling seru dan menggemaskan ke benua biru? Mulai dari Menara Eiffel yang romantis sampai salju lembut di Swiss, semuanya ada di sini!</p>
+            <a href="Tour package.html" class="btn-main">🌸 Intip Paket Tour</a>
+        </div>
+    </section>
+
+    <!-- 2. HIGHLIGHT DESTINASI (CUPLIKAN) -->
+    <h2 class="section-title">✈️ Destinasi Favorit</h2>
+    <div class="cards-container">
+        
+        <!-- Card 1 -->
+        <div class="card">
+           
+            <img src= Paris.jpg alt="Paris">
+            <div class="card-body">
+                <h3>Paris, Prancis</h3>
+                <p>Menikmati suasana romantis di bawah cantiknya Menara Eiffel.</p>
+                <a href="Tour package.html" class="btn-sub">Lihat Detail</a>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <!--  src="images/swiss.jpg" -->
+            <img src= salju.jpg alt="Swiss">
+            <div class="card-body">
+                <h3>Salju Swiss</h3>
+                <p>Bermain salju lembut dengan pemandangan pegunungan Alpen.</p>
+                <a href="Tour package.html" class="btn-sub">Lihat Detail</a>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <img src=venecia.jpg alt="Italia">
+            <div class="card-body">
+                <h3>Venecia, Italia</h3>
+                <p>Menyusuri kanal-kanal indah nan klasik dengan gondola.</p>
+                <a href="Tour package.html" class="btn-sub">Lihat Detail</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 3. CTA KONTAK -->
+    <div class="cta-banner">
+        <h2>Punya Pertanyaan Sebelum Liburan? 💌</h2>
+        <p style="margin-bottom: 15px; font-size: 14px;">Tim kami siap bantu merencanakan perjalanan impianmu ke Eropa!</p>
+        <a href="Kontak.html" class="btn-main">Tanya Kami Sekarang</a>
+    </div>
+
+</body>
+</html>

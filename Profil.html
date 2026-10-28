@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Profil</title>
+    <style>
+        body { 
+            font-family: 'Comic Sans MS', cursive, sans-serif; 
+            padding: 25px; 
+            color: #4a5568; 
+            background-color: #fff9fb;
+            line-height: 1.6;
+        }
+        main {
+            max-width: 700px; 
+            margin: 0 auto;
+        }
+        .profil-card {
+            background: white;
+            border: 3px dashed #ffb6c1;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(255, 192, 203, 0.2);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        h3 { 
+            color: #ff69b4; 
+            font-size: 22px; 
+            margin-top: 0; 
+            margin-bottom: 15px; 
+        }
+        .stats-number {
+            color: #ff69b4; 
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0;
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        li {
+            margin-bottom: 8px;
+        }
+        .gallery-img {
+            object-fit: cover; 
+            border-radius: 12px; 
+            margin: 5px;
+            border: 2px solid #ffb6c1;
+            transition: transform 0.3s;
+        }
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- 1. Pencapaian Kami -->
+        <div class="profil-card">
+            <h3>🌸 Pencapaian Kami 🌸</h3>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <h2 class="stats-number">5.000+</h2>
+                    <p style="margin: 5px 0; color: #666; font-size: 14px;">Wisatawan</p>
+                </div>
+                <div>
+                    <h2 class="stats-number">15+</h2>
+                    <p style="margin: 5px 0; color: #666; font-size: 14px;">Negara Tujuan</p>
+                </div>
+                <div>
+                    <h2 class="stats-number">99%</h2>
+                    <p style="margin: 5px 0; color: #666; font-size: 14px;">Kelulusan Visa</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Mengapa Memilih Kami -->
+        <div class="profil-card" style="text-align: left; padding-left: 35px; padding-right: 35px;">
+            <h3 style="text-align: center;">✨ Mengapa Memilih Kami? ✨</h3>
+            <ul style="line-height: 1.8; padding-left: 20px;">
+                <li><b>Pendampingan Visa:</b> Dibantu dari penyiapan dokumen sampai konsultasi.</li>
+                <li><b>Itinerary Fleksibel:</b> Jadwal jalan-jalan bisa disesuaikan dengan kebutuhanmu.</li>
+                <li><b>Tour Leader Berpengalaman:</b> Paham seluk-beluk dan budaya lokal Eropa.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Galeri Destinasi -->
+        <div class="profil-card">
+            <h3>📸 Galeri Destinasi</h3>
+            <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;">
+                <img src="paris.jpg" alt="Paris" width="150" height="110" class="gallery-img">
+                <img src="swiss.jpg" alt="Swiss" width="150" height="110" class="gallery-img">
+                <img src="London2.jpg" alt="London" width="150" height="110" class="gallery-img">
+                <img src="itali.jpg" alt="Italia" width="150" height="110" class="gallery-img">
+                <img src="belanda.jpg" alt="Belanda" width="150" height="110" class="gallery-img">
+                <img src="jerman.jpg" alt="Jerman" width="150" height="110" class="gallery-img">
+                <!-- Tambahan Austria -->
+                <img src="austria.jpg" alt="Austria" width="150" height="110" class="gallery-img">
+            </div>
+        </div>
+
+        <!-- 4. Kata Mereka -->
+        <div class="profil-card">
+            <h3>💬 Kata Mereka Tentang Kami</h3>
+            <p style="font-style: italic; color: #555;">"Liburan ke Swiss & Prancis jadi santai banget karena semua diurus You're in Europe!"</p>
+            <p style="font-weight: bold; margin-bottom: 0; color: #ff69b4;">- Beni & Keluarga, Jakarta</p>
+        </div>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Tour - YOU'RE IN EUROPE</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <div style="font-size: 35px; text-align: center; margin-bottom: 10px;">✨ 📝 ✈️</div>
+        <h2>Formulir Pendaftaran Tour</h2>
+        <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 25px;">
+            Yuk, isi data di bawah ini untuk memesan perjalanan impianmu ke Eropa & UK!
+        </p>
+
+        <form>
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" name="nama" placeholder="Contoh: Bunga Citra" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Alamat Email:</label>
+                <input type="email" id="email" name="email" placeholder="Contoh: bunga@example.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telepon">Nomor Telepon / WhatsApp:</label>
+                <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 08123456789" required>
+            </div>
+
+            <div class="form-group">
+                <label for="paket">Pilih Paket Tour:</label>
+                <select id="paket" name="paket" required>
+                    <option value="" disabled selected>-- Pilih Paket Tour --</option>
+                    <option value="uk">🇬🇧 UK Royal & Classic Highlights (9H) - Rp 34,5 Jt</option>
+                    <option value="spring">🌸 Spring Bloom & Keukenhof (12H) - Rp 48,5 Jt</option>
+                    <option value="summer">☀️ Summer UK & Riviera Coast (14H) - Rp 56,0 Jt</option>
+                    <option value="autumn">🍁 Autumn Trail & Central Europe (13H) - Rp 51,0 Jt</option>
+                    <option value="winter">❄️ Winter Festive & Alpine Snow (14H) - Rp 59,5 Jt</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="catatan">Catatan / Permintaan Khusus (Opsional):</label>
+                <textarea id="catatan" name="catatan" rows="3" placeholder="Misal: Request kamar khusus atau dietary tertentu..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Kirim Pendaftaran 🚀</button>
+        </form>
+    </div>
+
+    <!-- Script JavaScript yang dibungkus dengan benar menggunakan <script> -->
+    <script>
+        const bookingForm = document.querySelector('form');
+        
+        if (bookingForm) {
+          bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah form langsung reload halaman
+            alert('Yey! Data pendaftaran berhasil dikirim. Tim You\'re in Europe akan segera menghubungimu! 🌸');
+            bookingForm.reset(); // Reset form setelah dikirim
+          });
+        }
+    </script>
+</body>
+</html>
