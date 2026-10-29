@@ -6,46 +6,314 @@
     <title>Booking Tour - YOU'RE IN EUROPE</title>
     
     <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome untuk ikon interaktif -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #fff9fb;
+            color: #4a5568;
+            padding: 30px 15px;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .form-container {
+            max-width: 550px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 3px dashed #ffb6c1;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+
+        h2 {
+            color: #ff69b4;
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 6px;
+        }
+
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            padding: 10px 14px;
+            border: 2px solid #ffccd5;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus, 
+        .form-group select:focus, 
+        .form-group textarea:focus {
+            border-color: #ff69b4;
+            box-shadow: 0 0 8px rgba(255, 105, 180, 0.3);
+        }
+
+        /* --- KONTROL JUMLAH PESERTA INTERAKTIF --- */
+        .counter-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .counter-btn {
+            background: #ffb6c1;
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .counter-btn:hover {
+            background: #ff69b4;
+            transform: scale(1.1);
+        }
+
+        .counter-value {
+            font-weight: bold;
+            font-size: 16px;
+            color: #ff69b4;
+        }
+
+        /* --- RINGKASAN HARGA INTERAKTIF --- */
+        .summary-card {
+            background: #fff0f5;
+            border: 2px dashed #ffb6c1;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        .summary-card h4 {
+            color: #ff69b4;
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .summary-total {
+            border-top: 1px dashed #ffb6c1;
+            padding-top: 8px;
+            margin-top: 8px;
+            font-weight: bold;
+            color: #d97706;
+            font-size: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: inherit;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            background-color: #ff1493;
+            transform: translateY(-2px);
+        }
+
+        /* --- MODAL CONFIRMATION POPUP --- */
+        .modal-bg {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #ffffff;
+            border: 4px dashed #ffb6c1;
+            border-radius: 20px;
+            padding: 25px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: popUp 0.3s ease;
+        }
+
+        .modal-content h3 {
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+
+        .modal-details {
+            text-align: left;
+            background: #fff9fb;
+            padding: 12px 18px;
+            border-radius: 12px;
+            font-size: 13px;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .btn-close {
+            background: #87ceeb;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-close:hover {
+            background: #ff69b4;
+        }
+
+        /* --- EFEK KONFETI LUCU & MERIAH (TAMPILAN LOKAL) --- */
+        .falling-confetti {
+            position: fixed;
+            top: -20px;
+            z-index: 9999;
+            pointer-events: none;
+            border-radius: 40%;
+            animation: fallAnimation linear forwards;
+        }
+
+        @keyframes fallAnimation {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(50vh) rotate(360deg) scale(1.2);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(105vh) rotate(720deg) scale(0.8);
+                opacity: 0.1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes popUp {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
 </head>
 <body>
 
     <div class="form-container">
         <div style="font-size: 35px; text-align: center; margin-bottom: 10px;">✨ 📝 ✈️</div>
         <h2>Formulir Pendaftaran Tour</h2>
-        <p style="text-align: center; font-size: 13px; color: var(--text-muted); margin-bottom: 25px;">
+        <p style="text-align: center; font-size: 13px; color: #64748b; margin-bottom: 25px;">
             Yuk, isi data di bawah ini untuk memesan perjalanan impianmu ke Eropa & UK!
         </p>
 
-        <form>
+        <form id="bookingForm">
             <div class="form-group">
-                <label for="nama">Nama Lengkap:</label>
+                <label for="nama"><i class="fas fa-user"></i> Nama Lengkap:</label>
                 <input type="text" id="nama" name="nama" placeholder="Contoh: Bunga Citra" required>
             </div>
 
             <div class="form-group">
-                <label for="email">Alamat Email:</label>
+                <label for="email"><i class="fas fa-envelope"></i> Alamat Email:</label>
                 <input type="email" id="email" name="email" placeholder="Contoh: bunga@example.com" required>
             </div>
 
             <div class="form-group">
-                <label for="telepon">Nomor Telepon / WhatsApp:</label>
+                <label for="telepon"><i class="fas fa-phone"></i> Nomor Telepon / WhatsApp:</label>
                 <input type="tel" id="telepon" name="telepon" placeholder="Contoh: 08123456789" required>
             </div>
 
             <div class="form-group">
-                <label for="paket">Pilih Paket Tour:</label>
+                <label for="paket"><i class="fas fa-map-marked-alt"></i> Pilih Paket Tour:</label>
                 <select id="paket" name="paket" required>
                     <option value="" disabled selected>-- Pilih Paket Tour --</option>
-                    <option value="uk">🇬🇧 UK Royal & Classic Highlights (9H) - Rp 34,5 Jt</option>
-                    <option value="spring">🌸 Spring Bloom & Keukenhof (12H) - Rp 48,5 Jt</option>
-                    <option value="summer">☀️ Summer UK & Riviera Coast (14H) - Rp 56,0 Jt</option>
-                    <option value="autumn">🍁 Autumn Trail & Central Europe (13H) - Rp 51,0 Jt</option>
-                    <option value="winter">❄️ Winter Festive & Alpine Snow (14H) - Rp 59,5 Jt</option>
+                    <option value="golden" data-harga="62.5">👑 Golden Root Imperial Heritage (15H) - Rp 62,5 Jt</option>
+                    <option value="uk" data-harga="34.5">🇬🇧 UK Royal & Classic Highlights (9H) - Rp 34,5 Jt</option>
+                    <option value="spring" data-harga="48.5">🌸 Spring Bloom & Keukenhof (12H) - Rp 48,5 Jt</option>
+                    <option value="summer" data-harga="56.0">☀️ Summer UK & Riviera Coast (14H) - Rp 56,0 Jt</option>
+                    <option value="autumn" data-harga="51.0">🍁 Autumn Trail & Central Europe (13H) - Rp 51,0 Jt</option>
+                    <option value="winter" data-harga="59.5">❄️ Winter Festive & Alpine Snow (14H) - Rp 59,5 Jt</option>
                 </select>
             </div>
 
+            <!-- JUMLAH PESERTA (COUNTER INTERAKTIF) -->
             <div class="form-group">
-                <label for="catatan">Catatan / Permintaan Khusus (Opsional):</label>
+                <label><i class="fas fa-users"></i> Jumlah Peserta:</label>
+                <div class="counter-box">
+                    <button type="button" class="counter-btn" id="btnMin">-</button>
+                    <span class="counter-value" id="pesertaVal">1 Orang</span>
+                    <button type="button" class="counter-btn" id="btnPlus">+</button>
+                </div>
+            </div>
+
+            <!-- KARTU RINGKASAN OTOMATIS -->
+            <div class="summary-card" id="summaryCard">
+                <h4><i class="fas fa-receipt"></i> Ringkasan Estimasi Pesanan</h4>
+                <div class="summary-row">
+                    <span>Paket:</span>
+                    <strong id="sumPaket">-</strong>
+                </div>
+                <div class="summary-row">
+                    <span>Harga / Orang:</span>
+                    <span id="sumHarga">Rp 0 Jt</span>
+                </div>
+                <div class="summary-row">
+                    <span>Jumlah Peserta:</span>
+                    <span id="sumPeserta">1 Orang</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total Estimasi:</span>
+                    <span id="sumTotal">Rp 0 Jt</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="catatan"><i class="fas fa-edit"></i> Catatan / Permintaan Khusus (Opsional):</label>
                 <textarea id="catatan" name="catatan" rows="3" placeholder="Misal: Request kamar khusus atau dietary tertentu..."></textarea>
             </div>
 
@@ -53,16 +321,142 @@
         </form>
     </div>
 
-    <!-- Script JavaScript yang dibungkus dengan benar menggunakan <script> -->
+    <!-- MODAL POPUP KONFIRMASI (INTERAKTIF) -->
+    <div class="modal-bg" id="modalConfirm">
+        <div class="modal-content">
+            <div style="font-size: 40px; margin-bottom: 5px;">🎉</div>
+            <h3>Pendaftaran Berhasil!</h3>
+            <p style="font-size: 13px; color: #64748b;">Terima kasih telah mendaftar. Berikut ringkasan datamu:</p>
+            
+            <div class="modal-details" id="modalText">
+                <!-- Isian detail dimasukkan lewat JavaScript -->
+            </div>
+
+            <p style="font-size: 12px; color: #ff69b4; margin-bottom: 15px;">Tim <b>You're in Europe</b> akan segera menghubungi nomor WhatsApp kamu! 🌸</p>
+            <button class="btn-close" onclick="tutupModal()">Selesai & Tutup</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT INTERAKTIF & EFEK KONFETI LUCU MERIAH -->
     <script>
-        const bookingForm = document.querySelector('form');
-        
-        if (bookingForm) {
-          bookingForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Mencegah form langsung reload halaman
-            alert('Yey! Data pendaftaran berhasil dikirim. Tim You\'re in Europe akan segera menghubungimu! 🌸');
-            bookingForm.reset(); // Reset form setelah dikirim
-          });
+        let jumlahPeserta = 1;
+        let hargaSatuan = 0;
+
+        const paketSelect = document.getElementById('paket');
+        const summaryCard = document.getElementById('summaryCard');
+        const sumPaket = document.getElementById('sumPaket');
+        const sumHarga = document.getElementById('sumHarga');
+        const sumPeserta = document.getElementById('sumPeserta');
+        const sumTotal = document.getElementById('sumTotal');
+
+        const btnMin = document.getElementById('btnMin');
+        const btnPlus = document.getElementById('btnPlus');
+        const pesertaVal = document.getElementById('pesertaVal');
+
+        // Fungsi Hitung Total Harga
+        function updateKalkulasi() {
+            const selectedOption = paketSelect.options[paketSelect.selectedIndex];
+            
+            if (selectedOption.value) {
+                hargaSatuan = parseFloat(selectedOption.getAttribute('data-harga'));
+                const namaPaket = selectedOption.text.split('-')[0].trim();
+                const total = (hargaSatuan * jumlahPeserta).toFixed(1);
+
+                sumPaket.textContent = namaPaket;
+                sumHarga.textContent = `Rp ${hargaSatuan.toFixed(1)} Jt`;
+                sumPeserta.textContent = `${jumlahPeserta} Orang`;
+                sumTotal.textContent = `Rp ${total} Jt`;
+
+                summaryCard.style.display = 'block';
+            }
+        }
+
+        // Event Pilihan Paket
+        paketSelect.addEventListener('change', updateKalkulasi);
+
+        // Event Tombol Plus & Minus Peserta
+        btnPlus.addEventListener('click', () => {
+            jumlahPeserta++;
+            pesertaVal.textContent = `${jumlahPeserta} Orang`;
+            updateKalkulasi();
+        });
+
+        btnMin.addEventListener('click', () => {
+            if (jumlahPeserta > 1) {
+                jumlahPeserta--;
+                pesertaVal.textContent = `${jumlahPeserta} Orang`;
+                updateKalkulasi();
+            }
+        });
+
+        // EFEK KONFETI LUCU, WARNA-WARNI PASTEL, DAN SANGAT MERIAH
+        function triggerMeriahConfetti() {
+            // Palet warna-warni lucu/pastel (Pink muda, Magenta, Kuning hangat, Ungu muda, Hijau mint, Biru cerah)
+            const cutePalette = ['#ffb6c1', '#ff69b4', '#ffd1dc', '#fde68a', '#d8b4fe', '#a7f3d0', '#7dd3fc', '#f472b6'];
+            const totalParticles = 120; // Jumlah dibuat lebih banyak supaya sangat meriah
+
+            for (let i = 0; i < totalParticles; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('falling-confetti');
+                
+                // Variasi ukuran agar terlihat dinamis (kecil hingga agak besar)
+                const size = Math.random() * 10 + 6;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size * 0.6}px`; // Bentuk menyerupai potongan pita kecil
+
+                // Posisi awal horizontal acak di seluruh layar
+                confetti.style.left = `${Math.random() * 100}vw`;
+
+                // Warna acak yang lucu
+                confetti.style.backgroundColor = cutePalette[Math.floor(Math.random() * cutePalette.length)];
+
+                // Variasi kecepatan jatuh dan jeda kemunculan
+                const duration = Math.random() * 2.5 + 1.5; // Durasi jatuh 1.5 - 4 detik
+                const delay = Math.random() * 1.2; // Jeda acak
+                confetti.style.animationDuration = `${duration}s`;
+                confetti.style.animationDelay = `${delay}s`;
+
+                document.body.appendChild(confetti);
+
+                // Hapus elemen otomatis setelah animasi selesai agar memori tetap bersih
+                setTimeout(() => {
+                    confetti.remove();
+                }, (duration + delay) * 1000);
+            }
+        }
+
+        // Handle Submit Form dengan Modal Interaktif & Konfeti Meriah
+        const bookingForm = document.getElementById('bookingForm');
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const nama = document.getElementById('nama').value;
+            const telepon = document.getElementById('telepon').value;
+            const paketNama = paketSelect.options[paketSelect.selectedIndex].text.split('-')[0].trim();
+            const totalHarga = (hargaSatuan * jumlahPeserta).toFixed(1);
+
+            // Masukkan data ke modal
+            document.getElementById('modalText').innerHTML = `
+                <b>Nama:</b> ${nama}<br>
+                <b>WhatsApp:</b> ${telepon}<br>
+                <b>Paket:</b> ${paketNama}<br>
+                <b>Jumlah:</b> ${jumlahPeserta} Orang<br>
+                <b>Total Estimasi:</b> <span style="color:#d97706; font-weight:bold;">Rp ${totalHarga} Jt</span>
+            `;
+
+            // Panggil efek konfeti meriah warna-warni lucu
+            triggerMeriahConfetti();
+
+            // Tampilkan Modal
+            document.getElementById('modalConfirm').style.display = 'flex';
+        });
+
+        function tutupModal() {
+            document.getElementById('modalConfirm').style.display = 'none';
+            bookingForm.reset();
+            summaryCard.style.display = 'none';
+            jumlahPeserta = 1;
+            pesertaVal.textContent = '1 Orang';
         }
     </script>
 </body>
