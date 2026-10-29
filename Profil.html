@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <title>Profil</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - YOU'RE IN EUROPE</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { 
             font-family: 'Comic Sans MS', cursive, sans-serif; 
@@ -13,7 +15,7 @@
             line-height: 1.6;
         }
         main {
-            max-width: 700px; 
+            max-width: 750px; 
             margin: 0 auto;
         }
         .profil-card {
@@ -22,8 +24,12 @@
             padding: 25px;
             border-radius: 20px;
             box-shadow: 0 8px 20px rgba(255, 192, 203, 0.2);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .profil-card:hover {
+            transform: translateY(-3px);
         }
         h3 { 
             color: #ff69b4; 
@@ -33,9 +39,15 @@
         }
         .stats-number {
             color: #ff69b4; 
-            font-size: 24px;
+            font-size: 26px;
             font-weight: bold;
             margin: 0;
+        }
+        .stats-box {
+            transition: transform 0.2s;
+        }
+        .stats-box:hover {
+            transform: scale(1.08);
         }
         ul {
             text-align: left;
@@ -48,50 +60,97 @@
         .gallery-img {
             object-fit: cover; 
             border-radius: 12px; 
-            margin: 5px;
+            margin: 6px;
             border: 2px solid #ffb6c1;
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .gallery-img:hover {
-            transform: scale(1.05);
+            transform: scale(1.08);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+        }
+
+        /* Styling Tambahan FAQ Accordion Sederhana */
+        .faq-item {
+            background: #fff0f5;
+            border: 1px solid #ffb6c1;
+            border-radius: 12px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .faq-question {
+            font-weight: bold;
+            color: #d97706;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .faq-answer {
+            font-size: 13px;
+            color: #64748b;
+        }
+
+        /* Badge Kepercayaan */
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .badge-item {
+            background: #fff0f5;
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #ff69b4;
+            border: 1px dashed #ffb6c1;
         }
     </style>
 </head>
 <body>
 
     <main>
-        <!-- 1. Pencapaian Kami -->
+        <!-- 1. PENCAPAIAN KAMI -->
         <div class="profil-card">
-            <h3>🌸 Pencapaian Kami 🌸</h3>
+            <h3>Pencapaian Kami</h3>
             <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 15px;">
-                <div>
+                <div class="stats-box">
                     <h2 class="stats-number">5.000+</h2>
-                    <p style="margin: 5px 0; color: #666; font-size: 14px;">Wisatawan</p>
+                    <p style="margin: 5px 0; color: #666; font-size: 14px;">Wisatawan Puas</p>
                 </div>
-                <div>
+                <div class="stats-box">
                     <h2 class="stats-number">15+</h2>
                     <p style="margin: 5px 0; color: #666; font-size: 14px;">Negara Tujuan</p>
                 </div>
-                <div>
+                <div class="stats-box">
                     <h2 class="stats-number">99%</h2>
                     <p style="margin: 5px 0; color: #666; font-size: 14px;">Kelulusan Visa</p>
                 </div>
             </div>
+
+            <!-- Badge Kepercayaan Baru -->
+            <div class="trust-badges">
+                <div class="badge-item"><i class="fas fa-shield-alt"></i> 100% Trusted Agency</div>
+                <div class="badge-item"><i class="fas fa-award"></i> Certified Tour Leader</div>
+            </div>
         </div>
 
-        <!-- 2. Mengapa Memilih Kami -->
+        <!-- 2. MENGAPA MEMILIH KAMI -->
         <div class="profil-card" style="text-align: left; padding-left: 35px; padding-right: 35px;">
-            <h3 style="text-align: center;">✨ Mengapa Memilih Kami? ✨</h3>
+            <h3 style="text-align: center;">Mengapa Memilih Kami?</h3>
             <ul style="line-height: 1.8; padding-left: 20px;">
-                <li><b>Pendampingan Visa:</b> Dibantu dari penyiapan dokumen sampai konsultasi.</li>
-                <li><b>Itinerary Fleksibel:</b> Jadwal jalan-jalan bisa disesuaikan dengan kebutuhanmu.</li>
-                <li><b>Tour Leader Berpengalaman:</b> Paham seluk-beluk dan budaya lokal Eropa.</li>
+                <li><b>Pendampingan Visa:</b> Dibantu penuh dari penyiapan dokumen hingga konsultasi wawancara.</li>
+                <li><b>Itinerary Fleksibel:</b> Jadwal perjalanan dirancang nyaman, tidak terburu-buru, dan berkesan.</li>
+                <li><b>Tour Leader Berpengalaman:</b> Sangat paham seluk-beluk, sejarah, dan budaya lokal Eropa.</li>
+                <li><b>Akomodasi Pilihan:</b> Hotel strategis dekat dengan pusat transportasi dan objek wisata utama.</li>
             </ul>
         </div>
 
-        <!-- 3. Galeri Destinasi -->
+        <!-- 3. GALERI DESTINASI -->
         <div class="profil-card">
-            <h3>📸 Galeri Destinasi</h3>
+            <h3>Galeri Destinasi</h3>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">Potret keindahan sudut-sudut favorit yang siap kamu kunjungi.</p>
             <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 8px;">
                 <img src="paris.jpg" alt="Paris" width="150" height="110" class="gallery-img">
                 <img src="swiss.jpg" alt="Swiss" width="150" height="110" class="gallery-img">
@@ -99,16 +158,37 @@
                 <img src="itali.jpg" alt="Italia" width="150" height="110" class="gallery-img">
                 <img src="belanda.jpg" alt="Belanda" width="150" height="110" class="gallery-img">
                 <img src="jerman.jpg" alt="Jerman" width="150" height="110" class="gallery-img">
-                <!-- Tambahan Austria -->
-                <img src="austria.jpg" alt="Austria" width="150" height="110" class="gallery-img">
+                <img src="Hallstat.jpg" alt="Austria" width="150" height="110" class="gallery-img">
             </div>
         </div>
 
-        <!-- 4. Kata Mereka -->
+        <!-- 4. FAQ / PERTANYAAN UMUM (BARU) -->
+        <div class="profil-card" style="text-align: left; padding-left: 30px; padding-right: 30px;">
+            <h3 style="text-align: center;">Pertanyaan Umum (FAQ)</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">Apakah harga paket sudah termasuk tiket pesawat?</div>
+                <div class="faq-answer">Ya, sebagian besar paket utama kami sudah mencakup tiket penerbangan internasional PP dan akomodasi selama di Eropa.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">Bagaimana jika pengajuan visa saya ditolak?</div>
+                <div class="faq-answer">Kami memberikan pendampingan maksimal untuk meminimalisir penolakan, serta kebijakan penanganan khusus sesuai ketentuan agen.</div>
+            </div>
+        </div>
+
+        <!-- 5. KATA MEREKA -->
         <div class="profil-card">
-            <h3>💬 Kata Mereka Tentang Kami</h3>
-            <p style="font-style: italic; color: #555;">"Liburan ke Swiss & Prancis jadi santai banget karena semua diurus You're in Europe!"</p>
-            <p style="font-weight: bold; margin-bottom: 0; color: #ff69b4;">- Beni & Keluarga, Jakarta</p>
+            <h3>Kata Mereka Tentang Kami</h3>
+            <div style="margin-bottom: 15px;">
+                <p style="font-style: italic; color: #555;">"Liburan ke Swiss & Prancis jadi santai banget karena semua diurus You're in Europe! Pelayanannya sangat ramah."</p>
+                <p style="font-weight: bold; margin-bottom: 0; color: #ff69b4; font-size: 13px;">- Beni & Keluarga, Jakarta</p>
+            </div>
+            <hr style="border: none; border-top: 1px dashed #ffb6c1; margin: 15px 0;">
+            <div>
+                <p style="font-style: italic; color: #555;">"Paket Golden Root-nya juara! Rute istana kerajaan di Eropa Tengah bikin pengalaman liburan beda dari yang lain."</p>
+                <p style="font-weight: bold; margin-bottom: 0; color: #ff69b4; font-size: 13px;">- Sinta & Rekan, Surabaya</p>
+            </div>
         </div>
     </main>
 

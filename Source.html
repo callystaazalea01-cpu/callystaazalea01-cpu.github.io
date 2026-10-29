@@ -1,15 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
 <head>
-    <title>Source</title>
-</head>
-
-<body>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Referensi Aset - You're in Europe</title>
+    <!-- FontAwesome untuk ikon estetik -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <h1> Source </h1>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
 
-    <p>
-       Foto Menara eiffle, swiss, Uk : Pinterest
-    </p>
-  
+        body { 
+            background-color: #fff9fb; 
+            padding: 40px 20px; 
+            color: #4a5568; 
+            line-height: 1.6;
+            text-align: center;
+        }
 
+        .source-card {
+            background: white;
+            border: 3px dashed #ffb6c1;
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 8px 25px rgba(255, 192, 203, 0.25);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .source-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 { 
+            color: #ff69b4; 
+            font-size: 24px; 
+            margin-bottom: 25px; 
+            text-align: center;
+        }
+
+        .source-section {
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #ffd1dc;
+        }
+
+        .source-section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .source-section h3 {
+            color: #d97706;
+            font-size: 15px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .source-section ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+
+        .source-section li {
+            font-size: 13.5px;
+            margin-bottom: 6px;
+            color: #64748b;
+        }
+
+        .source-section li span {
+            font-weight: bold;
+            color: #4a5568;
+        }
+    </style>
+</head>
+<body>
+    <div class="source-card">
+        <h1>Referensi </h1>
+        
+        <!-- Bagian Foto -->
+        <div class="source-section">
+            <h3><i class="fas fa-image"></i> Foto Destinasi</h3>
+            <ul>
+                <li><span>Paris (Menara Eiffel):</span> Pinterest</li>
+                <li><span>London:</span> Pinterest</li>
+                <li><span>Salju Swiss:</span> Pinterest</li>
+                <li><span>Hallstatt:</span> Pinterest</li>
+                <li><span>Roma:</span> Pinterest</li>
+                <li><span>Vienna:</span> Pinterest</li>
+                <li><span>Riviera Coast :</span> Pinterest</li>
+                <li><span>Belanda :</span> Pinterest</li>
+            </ul>
+        </div>
+
+        <!-- Bagian Video -->
+        <div class="source-section">
+            <h3><i class="fas fa-video"></i> Video Latar Utama</h3>
+            <ul>
+                <li><span>video2.mp4:</span> TikTok</li>
+            </ul>
+        </div>
+
+        <!-- Bagian Pendukung -->
+        <div class="source-section">
+            <h3><i class="fas fa-code"></i> Komponen Lain</h3>
+            <ul>
+                <li><span>Ikon:</span> FontAwesome</li>
+                <li><span>Font:</span> Comic Sans MS</li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>

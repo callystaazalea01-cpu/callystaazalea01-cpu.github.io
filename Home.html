@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - You're in Europe</title>
+    <!-- FontAwesome untuk ikon estetik -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Library Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -19,79 +24,204 @@
             padding-bottom: 50px;
         }
 
-        /* 1. HERO SECTION (Bisa Video/Foto) */
+        /* 1. HERO SECTION DENGAN VIDEO2.MP4 FULL COVER */
         .hero {
             position: relative;
             height: 70vh;
+            min-height: 480px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             overflow: hidden;
-            /* FOTO BACKUP: Ganti URL gambar di bawah jika tidak pakai video */
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200') center/cover no-repeat;
+            background-color: #ffb6c1;
         }
 
-        /* Video Background (Aktifkan jika punya file video mp4) */
+        /* Styling Video Background Penuh & Rapi */
         .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            object-fit: cover;
+            object-position: center 35%;
+            filter: brightness(0.9);
+        }
+
+        /* Lapisan Transparan Tipis di Atas Video */
+        .hero-video-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            z-index: 1;
+            background: rgba(0, 0, 0, 0.25);
+            z-index: 2;
         }
+
+        /* --- ANIMASI PESAWAT BANNER (LANGSUNG MUNCUL DI AWAL) --- */
+        .plane-track-outside {
+            position: absolute;
+            top: 25px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .plane-banner-wrapper {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            left: 10%; /* Posisi awal langsung terlihat di layar */
+            white-space: nowrap;
+            animation: flyPlaneOutside 13s linear infinite, floatBounce 2s ease-in-out infinite alternate;
+        }
+
+        .banner-rope {
+            width: 25px;
+            height: 2px;
+            background: repeating-linear-gradient(90deg, #fff, #fff 3px, transparent 3px, transparent 6px);
+        }
+
+        .plane-banner {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px dashed #ff69b4;
+            padding: 6px 18px;
+            border-radius: 15px;
+            color: #d97706;
+            font-size: 1rem;
+            font-style: italic;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .plane-icon {
+            font-size: 2rem;
+            transform: rotate(15deg);
+            filter: drop-shadow(0 3px 5px rgba(0,0,0,0.3));
+        }
+
+        @keyframes flyPlaneOutside {
+            0% { left: 10%; }
+            80% { left: 110%; }
+            80.01% { left: -70%; }
+            100% { left: 10%; }
+        }
+
+        @keyframes floatBounce {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(6px); }
+        }
+        /* -------------------------------------- */
 
         .hero-overlay {
             position: relative;
-            z-index: 2;
-            background: rgba(255, 255, 255, 0.85);
-            padding: 30px 40px;
-            border-radius: 20px;
+            z-index: 3;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 35px 40px;
+            border-radius: 24px;
             border: 3px dashed #ffb6c1;
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 20px;
-            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.4);
             color: #4a5568;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-overlay:hover {
+            transform: scale(1.01);
         }
 
         .hero-overlay h1 {
             color: #ff69b4;
-            font-size: 26px;
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        #dynamicGreeting {
+            font-size: 13px;
+            color: #d97706;
+            font-weight: bold;
             margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .hero-overlay p {
-            font-size: 15px;
+            font-size: 14.5px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
+            color: #64748b;
         }
 
         .btn-main {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 12px 28px;
             background-color: #ff69b4;
             color: white;
             text-decoration: none;
             font-weight: bold;
             border-radius: 25px;
-            box-shadow: 0 4px 10px rgba(255, 105, 180, 0.3);
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
             transition: all 0.3s ease;
         }
 
         .btn-main:hover {
             background-color: #ff1493;
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 20, 147, 0.5);
         }
 
-        /* 2. SECTION HIGHLIGHT DESTINASI */
+        /* 2. SECTION BADGES KEUNGGULAN */
+        .features-bar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: -30px auto 30px;
+            position: relative;
+            z-index: 5;
+            padding: 0 20px;
+        }
+
+        .feature-item {
+            background: white;
+            border: 2px dashed #ffb6c1;
+            padding: 12px 20px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(255, 192, 203, 0.25);
+            font-size: 13px;
+            font-weight: bold;
+            color: #d97706;
+            transition: 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            background: #fff0f5;
+        }
+
+        .feature-item i {
+            color: #ff69b4;
+            font-size: 18px;
+        }
+
+        /* 3. SECTION HIGHLIGHT DESTINASI */
         .section-title {
             text-align: center;
-            margin: 40px 0 20px;
+            margin: 45px 0 20px;
             color: #ff69b4;
-            font-size: 24px;
+            font-size: 25px;
         }
 
         .cards-container {
@@ -107,27 +237,38 @@
         .card {
             background: white;
             border: 2px dashed #ffb6c1;
-            border-radius: 16px;
+            border-radius: 18px;
             width: 280px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(255, 192, 203, 0.2);
-            transition: transform 0.3s ease;
+            box-shadow: 0 6px 18px rgba(255, 192, 203, 0.2);
+            transition: all 0.3s ease;
             text-align: center;
         }
 
         .card:hover {
             transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(255, 182, 193, 0.4);
         }
 
-        /* GANTI FOTO CARD DI SINI / LEWAT HTML BELOW */
-        .card img {
+        .card-img-wrapper {
             width: 100%;
             height: 170px;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
         }
 
         .card-body {
-            padding: 15px;
+            padding: 18px 15px;
         }
 
         .card-body h3 {
@@ -144,7 +285,7 @@
 
         .btn-sub {
             display: inline-block;
-            padding: 8px 18px;
+            padding: 8px 20px;
             background-color: #fff0f5;
             color: #ff69b4;
             border: 1px solid #ffb6c1;
@@ -160,49 +301,102 @@
             color: white;
         }
 
-        /* 3. QUICK CTA SECTION */
-        .cta-banner {
+        /* 4. LIVE STATS SECTION */
+        .stats-section {
+            max-width: 900px;
             margin: 50px auto 0;
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            border: 2px dashed #ffb6c1;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(255, 192, 203, 0.2);
+            text-align: center;
+        }
+
+        .stat-box h2 {
+            color: #ff69b4;
+            font-size: 26px;
+            margin-bottom: 5px;
+        }
+
+        .stat-box p {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: bold;
+        }
+
+        /* 5. QUICK CTA SECTION */
+        .cta-banner {
+            margin: 30px auto 0;
             max-width: 900px;
             background: #ffffff;
             border: 2px dashed #ffb6c1;
             border-radius: 20px;
             padding: 30px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(255, 192, 203, 0.2);
+            box-shadow: 0 8px 20px rgba(255, 192, 203, 0.2);
         }
 
         .cta-banner h2 {
             color: #ff69b4;
             margin-bottom: 10px;
-            font-size: 20px;
+            font-size: 21px;
         }
     </style>
 </head>
 <body>
 
-    <!-- 1. HERO SECTION -->
+    <!-- 1. HERO SECTION DENGAN VIDEO2.MP4 -->
     <section class="hero">
-        <!-- TIPS VIDEO: Jika ada file video MP4, hilangkan tanda komentar di baris video di bawah -->
-        <!-- <video autoplay muted loop class="hero-video">
-            <source src="video-pantai.mp4" type="video/mp4">
-        </video> -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="video2.mp4" type="video/mp4">
+            Browsermu tidak mendukung tag video.
+        </video>
+        
+        <div class="hero-video-overlay"></div>
 
+        <!-- Pesawat Terbang Melayang di Luar Kotakan (Langsung Muncul) -->
+        <div class="plane-track-outside">
+            <div class="plane-banner-wrapper">
+                <div class="plane-banner">"Roam the world in search of magic..."</div>
+                <div class="banner-rope"></div>
+                <div class="plane-icon">✈️</div>
+            </div>
+        </div>
+
+        <!-- Kotakan Sambutan Utama -->
         <div class="hero-overlay">
-            <h1>✨ Selamat Datang di You're in Europe! ✨</h1>
-            <p>Yuhuul Siap buat jalan-jalan virtual paling seru dan menggemaskan ke benua biru? Mulai dari Menara Eiffel yang romantis sampai salju lembut di Swiss, semuanya ada di sini!</p>
-            <a href="tourpackage.html" class="btn-main">🌸 Intip Paket Tour</a>
+            <div id="dynamicGreeting">Halo, Selamat Datang!</div>
+            <h1>Selamat Datang di You're in Europe!</h1>
+            <p>Siap untuk menjelajahi keindahan benua biru bersama kami? Mulai dari Menara Eiffel yang romantis sampai pemandangan salju lembut di Swiss, wujudkan perjalanan impianmu di sini!</p>
+            <a href="tourpackage.html" class="btn-main">Intip Paket Tour</a>
         </div>
     </section>
 
-    <!-- 2. HIGHLIGHT DESTINASI (CUPLIKAN) -->
-    <h2 class="section-title">✈️ Destinasi Favorit</h2>
+    <!-- 2. FITUR UNGGULAN -->
+    <div class="features-bar">
+        <div class="feature-item">
+            <i class="fas fa-passport"></i> 99% Kelulusan Visa
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-plane-departure"></i> Penerbangan Nyaman
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-user-shield"></i> Pendamping Profesional
+        </div>
+    </div>
+
+    <!-- 3. HIGHLIGHT DESTINASI -->
+    <h2 class="section-title">Destinasi Favorit</h2>
     <div class="cards-container">
         
         <!-- Card 1 -->
         <div class="card">
-           
-            <img src=paris.jpg alt="Paris">
+            <div class="card-img-wrapper">
+                <img src="paris.jpg" alt="Paris">
+            </div>
             <div class="card-body">
                 <h3>Paris, Prancis</h3>
                 <p>Menikmati suasana romantis di bawah cantiknya Menara Eiffel.</p>
@@ -212,8 +406,9 @@
 
         <!-- Card 2 -->
         <div class="card">
-            <!--  src="images/swiss.jpg" -->
-            <img src= salju.jpg alt="Swiss">
+            <div class="card-img-wrapper">
+                <img src="salju.jpg" alt="Swiss">
+            </div>
             <div class="card-body">
                 <h3>Salju Swiss</h3>
                 <p>Bermain salju lembut dengan pemandangan pegunungan Alpen.</p>
@@ -223,7 +418,9 @@
 
         <!-- Card 3 -->
         <div class="card">
-            <img src=venecia.jpg alt="Italia">
+            <div class="card-img-wrapper">
+                <img src="venecia.jpg" alt="Italia">
+            </div>
             <div class="card-body">
                 <h3>Venecia, Italia</h3>
                 <p>Menyusuri kanal-kanal indah nan klasik dengan gondola.</p>
@@ -233,12 +430,98 @@
 
     </div>
 
-    <!-- 3. CTA KONTAK -->
+    <!-- 4. LIVE STATS COUNTER -->
+    <div class="stats-section">
+        <div class="stat-box">
+            <h2 id="counterWisatawan">0+</h2>
+            <p>Wisatawan Puas</p>
+        </div>
+        <div class="stat-box">
+            <h2 id="counterNegara">0+</h2>
+            <p>Negara Tujuan</p>
+        </div>
+        <div class="stat-box">
+            <h2>99%</h2>
+            <p>Sukses Visa</p>
+        </div>
+    </div>
+
+    <!-- 5. QUICK CTA SECTION -->
     <div class="cta-banner">
-        <h2>Punya Pertanyaan Sebelum Liburan? 💌</h2>
-        <p style="margin-bottom: 15px; font-size: 14px;">Tim kami siap bantu merencanakan perjalanan impianmu ke Eropa!</p>
+        <h2>Punya Pertanyaan Sebelum Liburan?</h2>
+        <p style="margin-bottom: 18px; font-size: 14px; color: #64748b;">Tim kami siap bantu merencanakan perjalanan impianmu ke Eropa!</p>
         <a href="Kontak.html" class="btn-main">Tanya Kami Sekarang</a>
     </div>
 
+    <!-- SCRIPT JAVASCRIPT -->
+    <script>
+        // 1. Sapaan Berdasarkan Waktu
+        const jam = new Date().getHours();
+        const greetingEl = document.getElementById('dynamicGreeting');
+        if (jam < 12) {
+            greetingEl.textContent = "Selamat Pagi, Penjelajah!";
+        } else if (jam < 15) {
+            greetingEl.textContent = "Selamat Siang, Penjelajah!";
+        } else if (jam < 18) {
+            greetingEl.textContent = "Selamat Sore, Penjelajah!";
+        } else {
+            greetingEl.textContent = "Selamat Malam, Penjelajah!";
+        }
+
+        // 2. Efek Angka Berjalan (Counter Animation)
+        function animateValue(id, start, end, duration) {
+            let obj = document.getElementById(id);
+            let range = end - start;
+            let current = start;
+            let increment = end > start ? 1 : -1;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            let timer = setInterval(function() {
+                current += Math.ceil(end / 50);
+                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
+                    current = end;
+                    clearInterval(timer);
+                }
+                obj.textContent = current.toLocaleString() + "+";
+            }, stepTime);
+        }
+
+        // 3. EFEK HUJAN WARNA BIRU DARI ATAS KE BAWAH (SESUAI PALET GAMBAR)
+        function triggerBlueRain() {
+            var duration = 4 * 1000; // Berlangsung selama 4 detik
+            var animationEnd = Date.now() + duration;
+            
+            // Palet warna dari gambar: Clouds, Clear Skies, Deep Ocean, Blueberry, Bluebird
+            var bluePalette = ['#FFF8E7', '#8CC1E9', '#12284B', '#0055A0', '#438BC4'];
+
+            var interval = setInterval(function() {
+                var timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    return clearInterval(interval);
+                }
+
+                // Menjatuhkan partikel dari bagian atas layar ke bawah
+                confetti({
+                    particleCount: 6,
+                    angle: 90,
+                    spread: 180,
+                    startVelocity: 15,
+                    origin: { x: Math.random(), y: 0 }, // Mulai dari garis paling atas layar
+                    colors: bluePalette,
+                    ticks: 200,
+                    gravity: 0.8,
+                    scalar: 1.1
+                });
+            }, 50);
+        }
+
+        window.onload = function() {
+            animateValue("counterWisatawan", 0, 5000, 1500);
+            animateValue("counterNegara", 0, 15, 1000);
+            
+            // Jalankan efek hujan warna biru dari atas saat halaman dimuat
+            setTimeout(triggerBlueRain, 300);
+        };
+    </script>
 </body>
 </html>

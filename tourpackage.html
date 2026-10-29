@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <title>Products - YOU'RE IN EUROPE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -147,9 +147,23 @@
         </div>
 
         <div class="katalog-grid">
+            <!-- 0. GOLDEN ROOT (SPESIAL EKSKLUSIF) -->
+            <div class="katalog-box" style="border-color: #f59e0b;">
+                <img src="austria2.jpg" class="katalog-img" alt="Golden Root Special" style="border-color: #f59e0b;">
+                <div class="katalog-content">
+                    <span class="season-tag" style="background: #fef3c7; color: #b45309; border-color: #fcd34d;">👑 Spesial Golden Root Heritage</span>
+                    <h4>Golden Root Imperial Heritage (15H)</h4>
+                    <p class="rute-text"><i class="fas fa-map-marker-alt"></i> Praha • Wina • Budapest • Salzburg • Munich</p>
+                    <p style="color: #64748b; font-size: 0.85rem; line-height: 1.5;">Menelusuri jejak kemegahan kerajaan dinasti Eropa Tengah, istana-istana emas klasik, dan kota tua penuh romansa.</p>
+                    <div class="harga-box">
+                        <div class="harga" style="color: #b45309;">Rp 62,5 Jt</div>
+                        <button class="btn-itin" onclick="bukaModal('itin-golden')" style="background: #f59e0b;">Lihat Itinerary</button>
+                    </div>
+                </div>
+            </div>
+
             <!-- 1. SPESIAL UK -->
             <div class="katalog-box" style="border-color: #87ceeb;">
-                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "UK.jpg" -->
                 <img src="UK.jpg" class="katalog-img" alt="UK Special" style="border-color: #87ceeb;">
                 <div class="katalog-content">
                     <span class="season-tag" style="background: #e0f2fe; color: #0284c7; border-color: #7dd3fc;">🇬🇧 Spesial United Kingdom</span>
@@ -165,7 +179,6 @@
 
             <!-- 2. SPRING -->
             <div class="katalog-box">
-                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "spring.jpg" -->
                 <img src="tulip.jpg" class="katalog-img" alt="Spring">
                 <div class="katalog-content">
                     <span class="season-tag">🌸 Musim Semi (Maret - Mei)</span>
@@ -181,7 +194,6 @@
 
             <!-- 3. SUMMER -->
             <div class="katalog-box">
-                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "summer.jpg" -->
                 <img src="summer.jpg" class="katalog-img" alt="Summer">
                 <div class="katalog-content">
                     <span class="season-tag" style="background: #fef3c7; color: #d97706; border-color: #fde68a;">☀️ Musim Panas (Juni - Ags)</span>
@@ -197,7 +209,6 @@
 
             <!-- 4. AUTUMN -->
             <div class="katalog-box">
-                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "autumn.jpg" -->
                 <img src="autumn.jpg" class="katalog-img" alt="Autumn">
                 <div class="katalog-content">
                     <span class="season-tag" style="background: #ffedd5; color: #c2410c; border-color: #fed7aa;">🍁 Musim Gugur (Sept - Nov)</span>
@@ -213,7 +224,6 @@
 
             <!-- 5. WINTER -->
             <div class="katalog-box">
-                <!-- Ganti tulisan di dalam src="" dengan nama file foto kamu, contoh: "winter.jpg" -->
                 <img src="winter.jpg" class="katalog-img" alt="Winter">
                 <div class="katalog-content">
                     <span class="season-tag" style="background: #f1f5f9; color: #475569; border-color: #cbd5e1;">❄️ Musim Dingin (Des - Feb)</span>
@@ -238,6 +248,17 @@
     </div>
 
     <!-- DATA HIDDEN ITINERARY -->
+    <div id="itin-golden" style="display:none;">
+        <h3 style="color:#b45309; margin-bottom:12px; font-weight:700;">Itinerary Golden Root Imperial Heritage (15 Hari)</h3>
+        <ul style="padding-left:18px;">
+            <li><b>Hari 1-3 (Praha, Republik Ceko):</b> Tiba di Praha, menjelajahi Jembatan Charles, Old Town Square, dan kemegahan Prague Castle berarsitektur emas.</li>
+            <li><b>Hari 4-6 (Wina, Austria):</b> Mengunjungi Istana Schonbrunn dan Hofburg, menikmati konser musik klasik Mozart, serta mencicipi Sachertorte asli Wina.</li>
+            <li><b>Hari 7-9 (Budapest, Hungaria):</b> Menyusuri pesona Sungai Donau, melihat Gedung Parlemen Budapest yang ikonik, dan bersantai di pemandian air panas termal bersejarah.</li>
+            <li><b>Hari 10-12 (Salzburg & Hallstatt, Austria):</b> Menikmati kota kelahiran Mozart di Salzburg serta desa tercantik di dunia tepi danau Hallstatt.</li>
+            <li><b>Hari 13-15 (Munich, Jerman):</b> Wisata budaya di Marienplatz Munich, mencicipi kuliner lokal Bavaria, sebelum bertolak kembali ke tanah air.</li>
+        </ul>
+    </div>
+
     <div id="itin-uk" style="display:none;">
         <h3 style="color:#0284c7; margin-bottom:12px; font-weight:700;">Itinerary UK Royal & Classic (9 Hari)</h3>
         <ul style="padding-left:18px;">
@@ -289,6 +310,7 @@
         </ul>
     </div>
 
+    <!-- SCRIPT JAVASCRIPT UNTUK MODAL -->
     <script>
         function bukaModal(idData) {
             var isi = document.getElementById(idData).innerHTML;
@@ -300,7 +322,9 @@
         }
         window.onclick = function(e) {
             var modal = document.getElementById('modal-popup');
-            if (e.target == modal) { modal.style.display = 'none'; }
+            if (e.target == modal) { 
+                modal.style.display = 'none'; 
+            }
         }
     </script>
 </body>

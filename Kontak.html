@@ -3,7 +3,10 @@
 <head>
 <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <title>Kontak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - YOU'RE IN EUROPE</title>
+    <!-- FontAwesome untuk ikon estetik -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body { 
             font-family: 'Comic Sans MS', cursive, sans-serif; 
@@ -21,20 +24,64 @@
         .contact-card {
             background: white;
             border: 3px dashed #ffb6c1;
-            padding: 25px;
+            padding: 30px;
             border-radius: 20px;
             box-shadow: 0 8px 20px rgba(255, 192, 203, 0.2);
             max-width: 500px;
             margin: 0 auto;
             text-align: left;
+            transition: transform 0.3s ease;
         }
-        .contact-card p {
-            margin-bottom: 12px;
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+        .contact-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 14px;
+        }
+        .contact-item i {
+            color: #ff69b4;
+            font-size: 18px;
+            margin-top: 3px;
+        }
+        .contact-item span {
             font-weight: bold;
+            color: #2d3748;
         }
         .emoji-big { 
             font-size: 40px; 
             margin-bottom: 15px; 
+            text-align: center;
+        }
+        
+        /* Tombol Informasi Aman (Tanpa Link Eksternal) */
+        .action-info-box {
+            background: #fff0f5;
+            border: 2px dashed #ffb6c1;
+            border-radius: 15px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .action-info-box p {
+            font-size: 13px;
+            color: #d97706;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        /* Jam Operasional */
+        .info-box {
+            background: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            border-radius: 12px;
+            padding: 12px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: #64748b;
             text-align: center;
         }
     </style>
@@ -42,10 +89,46 @@
 <body>
     <div class="contact-card">
         <div class="emoji-big">💌 📞 📍</div>
-        <h1>Kontak You're in Europe</h1>
-        <p>📍 Alamat: Jl. Ice Skating No. 26</p>
-        <p>📞 Telepon: 022-567345</p>
-        <p>💌 Email: Youre_in_europe@example.com</p>
+        <h1 style="text-align: center;">Kontak You're in Europe</h1>
+        
+        <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <div>
+                <span>Alamat Kantor:</span><br>
+                Jl. Ice Skating No. 26, Bandung
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <div>
+                <span>Telepon / WhatsApp:</span><br>
+                0812-3456-7890
+            </div>
+        </div>
+
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <div>
+                <span>Email Resmi:</span><br>
+                Youre_in_europe@gmail.com
+            </div>
+        </div>
+
+        <!-- Jam Operasional -->
+        <div class="info-box">
+            <i class="fas fa-clock" style="color: #d97706;"></i> <b>Jam Operasional:</b><br>
+            Senin - Jumat: 09.00 - 17.00 WIB<br>
+            Sabtu: 09.00 - 14.00 WIB
+        </div>
+
+        <!-- Kotak Informasi Aman Pengganti Tombol Koneksi -->
+        <div class="action-info-box">
+            <p><i class="fas fa-info-circle"></i> Catatan Pelanggan</p>
+            <span style="font-size: 12px; color: #4a5568;">
+                Silakan simpan nomor di atas atau kirimkan email langsung untuk konsultasi paket tur impianmu!
+            </span>
+        </div>
     </div>
 </body>
 </html>
