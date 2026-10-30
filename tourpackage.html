@@ -219,7 +219,7 @@
             background: #ff1493;
         }
 
-        /* --- MODAL POPUP & EFEK HUJAN KONFETI LOKAL --- */
+        /* --- MODAL POPUP --- */
         .modal-bg {
             display: none;
             position: fixed;
@@ -254,20 +254,6 @@
         }
 
         .tombol-tutup:hover { color: #ff69b4; }
-
-        .falling-confetti {
-            position: fixed;
-            top: -20px;
-            z-index: 9999;
-            pointer-events: none;
-            border-radius: 40%;
-            animation: fallAnimation linear forwards;
-        }
-
-        @keyframes fallAnimation {
-            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
-        }
 
         @keyframes fadeIn {
             from { opacity: 0; } to { opacity: 1; }
@@ -523,38 +509,11 @@
             btn.classList.toggle('active');
         }
 
-        // EFEK HUJAN KONFETI PASTEL LOKAL SAAT BUKA MODAL
-        function triggerPastelConfetti() {
-            const cutePalette = ['#ffb6c1', '#ff69b4', '#ffd1dc', '#fde68a', '#d8b4fe', '#a7f3d0', '#7dd3fc'];
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.classList.add('falling-confetti');
-                
-                const size = Math.random() * 8 + 6;
-                confetti.style.width = `${size}px`;
-                confetti.style.height = `${size * 0.7}px`;
-                confetti.style.left = `${Math.random() * 100}vw`;
-                confetti.style.backgroundColor = cutePalette[Math.floor(Math.random() * cutePalette.length)];
-
-                const duration = Math.random() * 2 + 1.5;
-                const delay = Math.random() * 0.8;
-                confetti.style.animationDuration = `${duration}s`;
-                confetti.style.animationDelay = `${delay}s`;
-
-                document.body.appendChild(confetti);
-
-                setTimeout(() => { confetti.remove(); }, (duration + delay) * 1000);
-            }
-        }
-
         // MODAL LOGIC
         function bukaModal(idData) {
             var isi = document.getElementById(idData).innerHTML;
             document.getElementById('isi-itinerary').innerHTML = isi;
             document.getElementById('modal-popup').style.display = 'block';
-            
-            // Panggil konfeti manis saat modal dibuka
-            triggerPastelConfetti();
         }
 
         function tutupModal() {
